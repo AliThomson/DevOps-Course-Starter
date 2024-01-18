@@ -17,14 +17,14 @@
       </ul>
     </div>
   </div>
-  <form action="/add-item" method="post" class="form-example">
-    <div class="form-example">
-      <label for="title">What task would you lie to add: </label>
-      <input type="text" name="title" id="title" required />
+  <form action="/add-item" method="post">
+    <div class="mb-3">
+      <label for="title" class="form-label">Add a task to do: </label>
+      <input type="text" name="title" id="title" class="form-control" required />
     </div>
     
     <div class="form-example">
-      <input type="submit" value="Add it to the list" />
+      <button type="submit" class="btn btn-primary">Put it on the list</button>
     </div>
   </form>
 {% endblock %}
