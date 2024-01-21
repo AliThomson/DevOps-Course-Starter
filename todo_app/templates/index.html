@@ -10,20 +10,57 @@
   <div class="row">
     <div class="col-md-12">
       <h2>Items</h2>
-      <ul class="list-group mb-4">
+      <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td scope="col">Task</td>
+                <td scope="col">Status</td>
+                <td scope="col">Made progress?</td>
+            </tr>
+        </thead>
         {% for item in items %}
-          <li>{{ item.title }} - {{ item.status }}</li>
+            <tr>
+                <td>{{ item.title }}</td>
+                <td>{{ item.status }}</td>
+                <td>
+                  <form 
+                    action="/update-status" 
+                    method="post"
+                  >
+                    <input type="hidden" id="item_id" name="item_id" value="{{item.id}}"/>
+                    <select 
+                      name="status" 
+                      id="status"
+                      class="form-select border border-0"
+                    >
+
+                    {% for status in statuses %}
+                      <option 
+                          value="{{status}}"
+                          {% if status == item.status %} selected {% endif %}
+                        >
+                          {{ status }}
+                      </option>
+                    
+                    {% endfor %}
+
+                  </select>
+                  
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+                </td>
+            </tr>
         {% endfor %}
-      </ul>
+    </table>
     </div>
   </div>
+  
   <form action="/add-item" method="post">
     <div class="mb-3">
       <label for="title" class="form-label">Add a task to do: </label>
       <input type="text" name="title" id="title" class="form-control" required />
     </div>
-    
-    <div class="form-example">
+    <div class="mb-3">
       <button type="submit" class="btn btn-primary">Put it on the list</button>
     </div>
   </form>
