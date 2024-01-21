@@ -10,18 +10,16 @@
   <div class="row">
     <div class="col-md-12">
       <h2>Items</h2>
-      <table class="table table-bordered">
+      <table class="table table-bordered align-middle">
         <thead>
             <tr>
-                <td scope="col">Task</td>
-                <td scope="col">Status</td>
-                <td scope="col">Made progress?</td>
+              <td scope="col">Task</td>
+              <td scope="col">Status</td>
             </tr>
         </thead>
         {% for item in items %}
             <tr>
                 <td>{{ item.title }}</td>
-                <td>{{ item.status }}</td>
                 <td>
                   <form 
                     action="/update-status" 
@@ -54,7 +52,7 @@
     </table>
     </div>
   </div>
-  
+
   <form action="/add-item" method="post">
     <div class="mb-3">
       <label for="title" class="form-label">Add a task to do: </label>
