@@ -5,6 +5,7 @@ _DEFAULT_ITEMS = [
     { 'id': 2, 'status': 'Not Started', 'title': 'Allow new items to be added' }
 ]
 
+STATUSES = ['Not Started', 'In Progress', 'Done']
 
 def get_items():
     """
