@@ -5,6 +5,10 @@ _DEFAULT_ITEMS = [
     { 'id': 2, 'status': 'Not Started', 'title': 'Allow new items to be added' }
 ]
 
+TO_DO_LIST_ID = "65b7c6467d53453f75bfabfd"
+DOING_LIST_ID = "65b7c6467d53453f75bfabfe"
+DONE_LIST_ID = "65b7c6467d53453f75bfabff"
+
 STATUSES = ['Not Started', 'In Progress', 'Done']
 
 def get_items():
