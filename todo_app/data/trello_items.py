@@ -8,20 +8,21 @@ board_id = os.getenv('TRELLO_BOARD_ID')
 list_id = os.getenv('TRELLO_LIST_ID')
 
 def get_from_trello(url):
-    headersList = {
-    "Accept": "*/*",
-    "User-Agent": "Thunder Client (https://www.thunderclient.com)" 
+    headers = {
+    "Accept": "application/json"
     }
-    payload = ""
+    
+    query = {
+        'key': api_key,
+        'token': token
+    }
 
-    response = requests.request("GET", url, data=payload,  headers=headersList)
+    response = requests.request("GET", url, headers=headers, params=query)
 
-    print(response.text)
     return response
 
-def get_items():
-    
-    reqUrl = "https://api.trello.com/1/boards/{board_id}/lists?cards=open&card_fields=name&fields=name&key={api_key}&token={token}"
+def get_items():  
+    reqUrl = "https://api.trello.com/1/boards/{0}/lists?cards=open".format( board_id)
 
     response = get_from_trello(reqUrl)
     response_json = response.json()
@@ -32,11 +33,6 @@ def get_items():
             cards.append(card)
 
     return cards
-# def get_items():
-    
-#     reqUrl = "https://api.trello.com/1/lists/{list_id}/cards?fields=name&key={api_key}&token={token}"
-
-#    return get_from_trello(reqUrl)
 
 def add_item(name):
     reqUrl = "https://api.trello.com/1/cards?idList={list_id}&key={api_key}&token={token}"
