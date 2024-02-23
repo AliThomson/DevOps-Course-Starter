@@ -2,6 +2,8 @@ import os
 import requests
 import json
 
+from todo_app.classes.card import Card
+
 api_key = os.getenv('TRELLO_API_KEY')
 token = os.getenv('TRELLO_API_TOKEN')
 board_id = os.getenv('TRELLO_BOARD_ID')
@@ -10,7 +12,7 @@ done_list_id = os.getenv('TRELLO_DONE_LIST_ID')
 
 def get_from_trello(url):
     headers = {
-    "Accept": "application/json"
+        "Accept": "application/json"
     }
     
     auth_data = {
@@ -24,8 +26,8 @@ def get_from_trello(url):
 
 def post_to_trello(url, new_task_name):   
     headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
+        "Accept": "application/json",
+        "Content-Type": "application/json"
     }
 
     payload = json.dumps({
@@ -41,8 +43,8 @@ def post_to_trello(url, new_task_name):
 
 def update_item_list(url, new_list_id):   
     headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
+        "Accept": "application/json",
+        "Content-Type": "application/json"
     }
 
     payload = json.dumps({
@@ -52,30 +54,25 @@ def update_item_list(url, new_list_id):
         "pos": "bottom"
     })
    
-    response = requests.put(url, headers=headers, data=payload)
-
-    return response
+    return requests.put(url, headers=headers, data=payload)
 
 def get_items():  
     reqUrl = "https://api.trello.com/1/boards/{0}/lists?cards=open&card_fields=id,name&fields=name".format(board_id)
 
     response = get_from_trello(reqUrl)
-    response_json = response.json()
+    board = response.json()
 
     cards = []
-    for trello_list in response_json:
-        for card in trello_list['cards']:
-            card['status'] = trello_list['name']
-            cards.append(card)
+    for list in board:
+        for card in list['cards']:
+            cards.append(Card.from_trello_board(card, list))
 
     return cards
 
 def add_item(new_task_name):
     reqUrl = "https://api.trello.com/1/cards?idList={0}".format(todo_list_id)
 
-    response = post_to_trello(reqUrl, new_task_name)
-
-    print(response.text)
+    return post_to_trello(reqUrl, new_task_name)
 
 def move_item(item_id, new_list):
     reqUrl = "https://api.trello.com/1/cards/{0}".format(item_id)
