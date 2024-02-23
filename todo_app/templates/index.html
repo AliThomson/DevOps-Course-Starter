@@ -15,6 +15,7 @@
             <tr>
               <td scope="col">Task</td>
               <td scope="col">Status</td>
+              <td scope="col">Move to done?</td>
             </tr>
         </thead>
         {{ items.name }}
@@ -22,13 +23,21 @@
             <tr>
                 <td>{{ card.name }}</td>
                 <td>{{ card.status }}</td>
+                <td>
+                  {% if card.status == "To Do" %}
+                    <form id="complete-item" action="/complete-item" method="post">           
+                      <input type="hidden" name="item_id" id="item_id" value="{{card.id}}" class="hidden" />
+                      <input type="submit" value="Finished!" class="btn btn-primary" />
+                    </form>
+                  {% endif %}
+                </td>
             </tr>
         {% endfor %}
     </table>
     </div>
   </div>
 
-  <form action="/add-item" method="post">
+  <form id="add-item" action="/add-item" method="post">
     <div class="mb-3">
       <label for="title" class="form-label">Add a task to do: </label>
       <input type="text" name="title" id="title" class="form-control" required />
