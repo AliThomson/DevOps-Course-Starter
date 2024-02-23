@@ -17,10 +17,11 @@
               <td scope="col">Status</td>
             </tr>
         </thead>
-        {% for item in items %}
+        {{ items.name }}
+        {% for card in items %}
             <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.status }}</td>
+                <td>{{ card.name }}</td>
+                <td>{{ card.status }}</td>
             </tr>
         {% endfor %}
     </table>

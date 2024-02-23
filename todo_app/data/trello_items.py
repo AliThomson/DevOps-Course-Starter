@@ -12,17 +12,31 @@ def get_from_trello(url):
     "Accept": "application/json"
     }
     
-    query = {
+    auth_data = {
         'key': api_key,
         'token': token
     }
 
-    response = requests.request("GET", url, headers=headers, params=query)
+    response = requests.get(url, headers=headers, params=auth_data)
+
+    return response
+
+def post_to_trello(url, data):   
+    headers = {
+    "Accept": "application/json"
+    }
+
+    auth_data = {
+        'key': api_key,
+        'token': token
+    }
+
+    response = requests.post(url, headers=headers, params=auth_data, json=data)
 
     return response
 
 def get_items():  
-    reqUrl = "https://api.trello.com/1/boards/{0}/lists?cards=open".format( board_id)
+    reqUrl = "https://api.trello.com/1/boards/{0}/lists?cards=open&card_fields=id,name&fields=name".format(board_id)
 
     response = get_from_trello(reqUrl)
     response_json = response.json()
@@ -30,24 +44,20 @@ def get_items():
     cards = []
     for trello_list in response_json:
         for card in trello_list['cards']:
+            card['status'] = trello_list['name']
             cards.append(card)
 
     return cards
 
 def add_item(name):
-    reqUrl = "https://api.trello.com/1/cards?idList={list_id}&key={api_key}&token={token}"
+    reqUrl = "https://api.trello.com/1/cards?idList={0}".format(list_id)
 
-    headersList = {
-    "Accept": "*/*",
-    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-    "Content-Type": "application/json" 
-    }
-
-    payload = json.dumps({
+    
+    data = json.dumps({
     "name": name,
     "pos": "bottom"
     })
 
-    response = requests.request("POST", reqUrl, data=payload,  headers=headersList)
+    response = post_to_trello(reqUrl, data)
 
     print(response.text)
