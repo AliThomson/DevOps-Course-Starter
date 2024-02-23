@@ -11,15 +11,6 @@ DONE_LIST_ID = "65b7c6467d53453f75bfabff"
 
 STATUSES = ['Not Started', 'In Progress', 'Done']
 
-def get_items():
-    """
-    Fetches all saved items from the session.
-
-    Returns:
-        list: The list of saved items.
-    """
-    return session.get('items', _DEFAULT_ITEMS.copy())
-
 
 def get_item(id):
     """
@@ -34,29 +25,6 @@ def get_item(id):
     items = get_items()
     return next((item for item in items if item['id'] == int(id)), None)
 
-
-def add_item(title):
-    """
-    Adds a new item with the specified title to the session.
-
-    Args:
-        title: The title of the item.
-
-    Returns:
-        item: The saved item.
-    """
-    items = get_items()
-
-    # Determine the ID for the item based on that of the previously added item
-    id = items[-1]['id'] + 1 if items else 0
-
-    item = { 'id': id, 'title': title, 'status': 'Not Started' }
-
-    # Add the item to the list
-    items.append(item)
-    session['items'] = items
-
-    return item
 
 
 def save_item(item):

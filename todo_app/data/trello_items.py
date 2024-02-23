@@ -13,25 +13,28 @@ def get_from_trello(url):
     }
     
     auth_data = {
-        'key': api_key,
-        'token': token
+        "key": api_key,
+        "token": token
     }
 
     response = requests.get(url, headers=headers, params=auth_data)
 
     return response
 
-def post_to_trello(url, data):   
+def post_to_trello(url, new_task_name):   
     headers = {
-    "Accept": "application/json"
+    "Accept": "application/json",
+    "Content-Type": "application/json"
     }
 
-    auth_data = {
-        'key': api_key,
-        'token': token
-    }
-
-    response = requests.post(url, headers=headers, params=auth_data, json=data)
+    payload = json.dumps({
+        "key": api_key,
+        "token": token,
+        "name": new_task_name,
+        "pos": "bottom"
+    })
+   
+    response = requests.post(url, headers=headers, data=payload)
 
     return response
 
@@ -49,15 +52,9 @@ def get_items():
 
     return cards
 
-def add_item(name):
+def add_item(new_task_name):
     reqUrl = "https://api.trello.com/1/cards?idList={0}".format(list_id)
 
-    
-    data = json.dumps({
-    "name": name,
-    "pos": "bottom"
-    })
-
-    response = post_to_trello(reqUrl, data)
+    response = post_to_trello(reqUrl, new_task_name)
 
     print(response.text)
