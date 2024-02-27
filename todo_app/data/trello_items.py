@@ -57,7 +57,7 @@ def update_item_list(url, new_list_id):
     return requests.put(url, headers=headers, data=payload)
 
 def get_items():  
-    reqUrl = "https://api.trello.com/1/boards/{0}/lists?cards=open&card_fields=id,name&fields=name".format(board_id)
+    reqUrl = f"https://api.trello.com/1/boards/{board_id}/lists?cards=open&card_fields=id,name&fields=name"
 
     response = get_from_trello(reqUrl)
     board = response.json()
@@ -70,12 +70,12 @@ def get_items():
     return cards
 
 def add_item(new_task_name):
-    reqUrl = "https://api.trello.com/1/cards?idList={0}".format(todo_list_id)
+    reqUrl = f"https://api.trello.com/1/cards?idList={todo_list_id}"
 
     return post_to_trello(reqUrl, new_task_name)
 
 def move_item(item_id, new_list):
-    reqUrl = "https://api.trello.com/1/cards/{0}".format(item_id)
+    reqUrl = f"https://api.trello.com/1/cards/{item_id}"
     if new_list == "todo":
         new_list_id = todo_list_id
     else:
