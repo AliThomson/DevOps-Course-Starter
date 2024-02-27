@@ -1,14 +1,10 @@
-import os
 import requests
 import json
 
 from todo_app.classes.card import Card
+from todo_app.classes.trello_service import TrelloService
 
-api_key = os.getenv('TRELLO_API_KEY')
-token = os.getenv('TRELLO_API_TOKEN')
-board_id = os.getenv('TRELLO_BOARD_ID')
-todo_list_id = os.getenv('TRELLO_TODO_LIST_ID')
-done_list_id = os.getenv('TRELLO_DONE_LIST_ID')
+myTrello = TrelloService()
 
 def get_from_trello(url):
     headers = {
@@ -16,8 +12,8 @@ def get_from_trello(url):
     }
     
     auth_data = {
-        "key": api_key,
-        "token": token
+        "key": myTrello.api_key,
+        "token": myTrello.token
     }
 
     response = requests.get(url, headers=headers, params=auth_data)
@@ -31,8 +27,8 @@ def post_to_trello(url, new_task_name):
     }
 
     payload = json.dumps({
-        "key": api_key,
-        "token": token,
+        "key": myTrello.api_key,
+        "token": myTrello.token,
         "name": new_task_name,
         "pos": "bottom"
     })
@@ -48,8 +44,8 @@ def update_item_list(url, new_list_id):
     }
 
     payload = json.dumps({
-        "key": api_key,
-        "token": token,
+        "key": myTrello.api_key,
+        "token": myTrello.token,
         "idList": new_list_id,
         "pos": "bottom"
     })
@@ -57,7 +53,7 @@ def update_item_list(url, new_list_id):
     return requests.put(url, headers=headers, data=payload)
 
 def get_items():  
-    reqUrl = f"https://api.trello.com/1/boards/{board_id}/lists?cards=open&card_fields=id,name&fields=name"
+    reqUrl = f"https://api.trello.com/1/boards/{myTrello.board_id}/lists?cards=open&card_fields=id,name&fields=name"
 
     response = get_from_trello(reqUrl)
     board = response.json()
@@ -70,15 +66,15 @@ def get_items():
     return cards
 
 def add_item(new_task_name):
-    reqUrl = f"https://api.trello.com/1/cards?idList={todo_list_id}"
+    reqUrl = f"https://api.trello.com/1/cards?idList={myTrello.todo_list_id}"
 
     return post_to_trello(reqUrl, new_task_name)
 
 def move_item(item_id, new_list):
     reqUrl = f"https://api.trello.com/1/cards/{item_id}"
     if new_list == "todo":
-        new_list_id = todo_list_id
+        new_list_id = myTrello.todo_list_id
     else:
-        new_list_id = done_list_id
+        new_list_id = myTrello.done_list_id
 
     return update_item_list(reqUrl, new_list_id)
