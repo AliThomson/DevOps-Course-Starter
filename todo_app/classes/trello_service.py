@@ -7,3 +7,4 @@ class TrelloService():
         self.board_id = os.getenv('TRELLO_BOARD_ID')
         self.todo_list_id = os.getenv('TRELLO_TODO_LIST_ID')
         self.done_list_id = os.getenv('TRELLO_DONE_LIST_ID')
+        self.doing_list_id = os.getenv('TRELLO_DOING_LIST_ID')

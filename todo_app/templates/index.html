@@ -18,8 +18,8 @@
               <td scope="col">Move to done?</td>
             </tr>
         </thead>
-        {{ items.name }}
-        {% for card in items %}
+        {{ view_model.items.name }}
+        {% for card in view_model.items %}
             <tr>
                 <td>{{ card.name }}</td>
                 <td>{{ card.status }}</td>
