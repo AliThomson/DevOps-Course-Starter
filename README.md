@@ -60,3 +60,29 @@ Press CTRL+C to quit
  * Debugger PIN: 113-666-066
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+## Testing the App
+### Dependencies
+
+Install pytest by running:
+
+```bash
+$ poetry add pytest
+```
+
+You can run the tests from within VS Code by installing the pytest configuration. Click on the flask in the Activity Bar, usually found to the left. You can then run or debug individual tests using the play button in the LH margin next to it.
+
+If you've installed pytest globally you can run all tests from the command line by running:
+
+```bash
+$ pytest
+```
+
+You can specify all the tests within one module by running:
+
+```bash
+$ pytest todo_app/<path-to-file>/<filename>
+```
+
+### Adding new tests
+Add your new tests directly under /todo_app/. Name the file ```test_<module_under_test>.py``` and name the individual tests ```test_<description_of_test_case>```

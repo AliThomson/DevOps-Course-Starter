@@ -30,7 +30,7 @@ def test_view_model_doing_property():
     assert len(result) == 2
     assert result[0].name == "test2"
 
-def test_view_model_doing_property():
+def test_view_model_to_do_property():
 
 # Act
     result = test_view_model.to_do_cards
