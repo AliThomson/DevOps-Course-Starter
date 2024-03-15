@@ -1,11 +1,11 @@
 class ViewModel:
-    def __init__(self, items):
-        self._items = items
+    def __init__(self, cards):
+        self._cards = cards
 
     @property
-    def items(self):
-        return self._items
+    def cards(self):
+        return self._cards
     
     @property
-    def done_items(self):
+    def done_cards(self):
         return []

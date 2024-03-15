@@ -9,10 +9,10 @@ def test_view_model_done_property():
     done_cards.append(Card(2, "test2", "Done"))
     done_cards.append(Card(3, "test3", "Done"))
 
-    done_items_view_model = ViewModel(done_cards)
+    done_cards_view_model = ViewModel(done_cards)
 
 # Act
-    result = done_items_view_model.done_items
+    result = done_cards_view_model.done_cards
 
 # Assert
     assert len(result) == 3
