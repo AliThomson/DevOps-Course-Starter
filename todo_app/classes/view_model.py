@@ -8,4 +8,4 @@ class ViewModel:
     
     @property
     def done_cards(self):
-        return []
+        return [card for card in self.cards if card.status == "Done"]
