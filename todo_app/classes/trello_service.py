@@ -13,31 +13,7 @@ class TrelloService():
             "Accept": "application/json",
             "Content-Type": "application/json"
         }
-
-    def get_from_trello(self):
-        auth_data = {
+        self.auth_data = {
             "key": self.api_key,
             "token": self.token
         }
-
-        return auth_data
-
-    def post_to_trello(self, new_task_name):
-        payload = json.dumps({
-            "key": self.api_key,
-            "token": self.token,
-            "name": new_task_name,
-            "pos": "bottom"
-        })
-        
-        return payload
-    
-    def put_to_trello(self, new_list_id):
-        payload = json.dumps({
-            "key": self.api_key,
-            "token": self.token,
-            "idList": new_list_id,
-            "pos": "bottom"
-        })
-        
-        return payload
