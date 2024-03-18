@@ -72,17 +72,17 @@ $ poetry add pytest
 
 You can run the tests from within VS Code by installing the pytest configuration. Click on the flask in the Activity Bar, usually found to the left. You can then run or debug individual tests using the play button in the LH margin next to it.
 
-If you've installed pytest globally you can run all tests from the command line by running:
+You can run all tests from the command line by running:
 
 ```bash
-$ pytest
+$ poetry run pytest
 ```
 
 You can specify all the tests within one module by running:
 
 ```bash
-$ pytest todo_app/<path-to-file>/<filename>
+$ poetry run pytest todo_app/<filename>
 ```
 
 ### Adding new tests
-Add your new tests directly under /todo_app/. Name the file ```test_<module_under_test>.py``` and name the individual tests ```test_<description_of_test_case>```
+Add your new tests directly under /todo_app/. To ensure your tests are 'discovered' and run by pytest  name the file ```test_<module_under_test>.py``` and name the individual tests ```test_<description_of_test_case>```.

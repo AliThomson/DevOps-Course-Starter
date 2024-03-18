@@ -12,7 +12,6 @@ from todo_app.data.trello_items import get_cards
 def client():
     file_path = find_dotenv('.env.test.')
     load_dotenv(file_path, override=True)
-    testTrello = TrelloService()
 
     test_app = app.create_app()
 
@@ -26,8 +25,8 @@ class StubResponse():
     def json(self):
         return self.fake_response_data
     
-def stub(url, params={}):
-    
+def stub(url, params={}, headers={}):
+    testTrello = TrelloService()
     test_board_id = testTrello.board_id
 
     if url == f'https://api.trello.com/1/boards/{test_board_id}/lists?cards=open&card_fields=id,name&fields=name':
