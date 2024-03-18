@@ -81,8 +81,10 @@ $ poetry run pytest
 You can specify all the tests within one module by running:
 
 ```bash
-$ poetry run pytest todo_app/<filename>
+$ poetry run pytest todo_app/tests/<path to file>/<filename>
 ```
 
 ### Adding new tests
-Add your new tests directly under /todo_app/. To ensure your tests are 'discovered' and run by pytest  name the file ```test_<module_under_test>.py``` and name the individual tests ```test_<description_of_test_case>```.
+Add your new tests into todo_app/tests. To ensure your tests are 'discovered' and run by pytest you must name the file ```test_<module_under_test>.py``` and name the individual tests ```test_<description_of_test_case>```.
+
+If you add a new folder for your tests remember to add an empty ```__init__.py``` file to the folder

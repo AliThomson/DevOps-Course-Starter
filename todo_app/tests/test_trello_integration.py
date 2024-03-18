@@ -2,6 +2,7 @@ import pytest
 from dotenv import find_dotenv, load_dotenv
 import requests
 
+
 from todo_app import app
 from todo_app.classes.trello_service import TrelloService
 from todo_app.data.trello_items import get_cards
