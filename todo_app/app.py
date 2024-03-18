@@ -21,7 +21,6 @@ def create_app():
 
     @app.post('/complete-card')
     def update_card_request():
-        
         card_id = request.form.get('card_id')
         print(card_id)
         
