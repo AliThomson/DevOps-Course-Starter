@@ -1,26 +1,32 @@
 from flask import Flask, render_template, request, redirect, url_for
 
+from todo_app.classes.view_model import ViewModel
 from todo_app.flask_config import Config
-from todo_app.data.trello_items import get_items, add_item, move_item
+from todo_app.data.trello_items import get_cards, add_card, move_card
 
-app = Flask(__name__)
-app.config.from_object(Config())
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object(Config())
 
-@app.route('/')
-def index():
-    return render_template('index.html', items=get_items())
+    @app.route('/')
+    def index():
+        cards_view_model = ViewModel(get_cards())
+        return render_template('index.html', view_model=cards_view_model)
 
-@app.post('/add-item')
-def add_item_request():
-    new_item = request.form.get('title')
-    add_item(new_item)
-    return redirect(url_for('index'))
+    @app.post('/add-card')
+    def add_card_request():
+        new_card = request.form.get('title')
+        add_card(new_card)
+        return redirect(url_for('index'))
 
-@app.post('/complete-item')
-def update_item_request():
+    @app.post('/complete-card')
+    def update_card_request():
+        card_id = request.form.get('card_id')
+        print(card_id)
+        
+        move_card(card_id, "done")
+        return redirect(url_for('index'))
     
-    item_id = request.form.get('item_id')
-    print(item_id)
-    
-    move_item(item_id, "done")
-    return redirect(url_for('index'))
+    return app
+
+create_app()
