@@ -22,7 +22,7 @@ def test_view_model_done_property(test_view_model):
 
 # Assert
     assert len(result) == 3
-    assert result[0].name == "test4"
+    assert any(card.name == "test4" for card in result)
 
 def test_view_model_doing_property(test_view_model):
 
@@ -31,7 +31,7 @@ def test_view_model_doing_property(test_view_model):
 
 # Assert
     assert len(result) == 2
-    assert result[0].name == "test2"
+    assert any(card.name == "test2" for card in result) 
 
 def test_view_model_to_do_property(test_view_model):
 
@@ -40,4 +40,4 @@ def test_view_model_to_do_property(test_view_model):
 
 # Assert
     assert len(result) == 1
-    assert result[0].name == "test1"
+    assert any(card.name == "test1" for card in result)

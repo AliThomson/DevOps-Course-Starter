@@ -64,12 +64,6 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 ## Testing the App
 ### Dependencies
 
-Install pytest by running:
-
-```bash
-$ poetry add pytest
-```
-
 You can run the tests from within VS Code by installing the pytest configuration. Click on the flask in the Activity Bar, usually found to the left. You can then run or debug individual tests using the play button in the LH margin next to it.
 
 You can run all tests from the command line by running:
