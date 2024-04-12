@@ -50,3 +50,17 @@
     ansible.builtin.template:
       src: /home/ec2-user/.env.j2
       dest: /opt/todoapp/.env
+
+  - name: Copy todoapp.service to the hosts
+    become: yes
+    ansible.builtin.copy:
+      src: /home/ec2-user/todoapp.service
+      dest: /etc/systemd/system/todoapp.service
+      owner: ec2-user
+
+  - name: Start the To-Do App
+    become: yes
+    ansible.builtin.systemd:
+      name: todoapp.service
+      state: restarted
+      daemon_reload: true
