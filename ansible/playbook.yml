@@ -2,6 +2,12 @@
 - name: Install To-Do App on new web-server
   hosts: webservers
   remote_user: ec2-user
+  vars_prompt:
+  - name: trello_api_key
+    prompt: What is your Trello API key?
+
+  - name: trello_api_token
+    prompt: What is your Trello API token?
 
   tasks:
   - name: Install Git and Python311
@@ -39,3 +45,8 @@
     ansible.builtin.shell: poetry install
     args:
       chdir: /opt/todoapp
+
+  - name: Create environment variables
+    ansible.builtin.template:
+      src: /home/ec2-user/.env.j2
+      dest: /opt/todoapp/.env
