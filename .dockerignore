@@ -2,6 +2,7 @@
 .env
 .vscode
 .venv
-ansible
 .pytest_cache
+__pycache__
 Dockerfile
+ansible
