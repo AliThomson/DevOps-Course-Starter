@@ -1,16 +1,14 @@
 FROM python:3.12 AS base
 
-# Install poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH=$PATH:/root/.local/bin/
 
-# Install ToDo App
-COPY . /app
+# Copy only the comparatively stable files needed by the poetry install 
+# so that we don't have to rerun it everytime a code file changes
+COPY pyproject.toml poetry.toml /app/
 WORKDIR /app
 RUN poetry install
-
-# ENV APP_PORT=5000
-# EXPOSE ${APP_PORT}
+COPY todo_app /app/todo_app
 
 FROM base AS production
 ENV FLASK_DEBUG=false

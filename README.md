@@ -94,19 +94,25 @@ All the code you need is within the ```ansible``` folder. Update the inventory w
 ansible-playbook install-to-do-app.yml -i inventory
 ```
 
-## Container
-### Building the images
-#### Development
-```docker build --tag todo-app:dev --target development .```
-#### Production
-```docker build --tag todo-app:prod --target production .```
+## Building and running the app via Docker
 
-
-### Running in a container
-#### Development, with hotloading:
+### For local development
+Build with:
+```bash
+docker build --tag todo-app:dev --target development .
 ```
+
+Run (with hotloading):
+```bash
 docker run --publish 8000:5000 --env-file .env --mount "type=bind,source=$(pwd)/todo_app,target=/app/todo_app" todo-app:dev
 ```
 
-#### Production
-```docker run --publish 8000:5000 --env-file=.env todo-app:prod```
+### Production
+Build with: 
+```bash
+docker build --tag todo-app:prod --target production .
+```
+Run with:
+```bash
+docker run --publish 8000:5000 --env-file=.env todo-app:prod
+```
