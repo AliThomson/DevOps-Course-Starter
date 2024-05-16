@@ -1,6 +1,7 @@
-*.git
-*.env*
-*.vscode
-*.venv
-*/ansible
+.git
+.env
+.vscode
+.venv
+ansible
 .pytest_cache
+Dockerfile
