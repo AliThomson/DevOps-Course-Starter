@@ -97,6 +97,13 @@ ansible-playbook install-to-do-app.yml -i inventory
 ## Building and running the app via Docker
 
 ### For local development
+To run:
+```bash
+docker compose up
+```
+
+To build and run without docker compose:
+
 Build with:
 ```bash
 docker build --tag todo-app:dev --target development .

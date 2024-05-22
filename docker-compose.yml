@@ -1,0 +1,14 @@
+services:
+  todoapp-dev:
+    env_file: .env
+    build:
+      context: .
+      target: development
+      dockerfile: Dockerfile
+    ports: 
+     - 8000:5000
+    volumes:
+      - type: bind
+        source: ./todo_app
+        target: /app/todo_app
+    platform: linux/amd64
