@@ -84,6 +84,7 @@ Add your new tests into todo_app/tests. To ensure your tests are 'discovered' an
 If you add a new folder for your tests remember to add an empty ```__init__.py``` file to the folder
 
 ## Deploying the application
+### Ansible
 You'll need: 
 1. Ansible installed on a machine to act as your control node.
 2. Passwordless SSH access from your control nodes to your managed nodes
@@ -91,4 +92,34 @@ You'll need:
 All the code you need is within the ```ansible``` folder. Update the inventory with your managed node IPs and then copy the whole folder to your control node (under ```/home/user/```). From there run the following command:
 ```
 ansible-playbook install-to-do-app.yml -i inventory
+```
+
+## Building and running the app via Docker
+
+### For local development
+To run:
+```bash
+docker compose up
+```
+
+To build and run without docker compose:
+
+Build with:
+```bash
+docker build --tag todo-app:dev --target development .
+```
+
+Run (with hotloading):
+```bash
+docker run --publish 8000:5000 --env-file .env --mount "type=bind,source=$(pwd)/todo_app,target=/app/todo_app" todo-app:dev
+```
+
+### Production
+Build with: 
+```bash
+docker build --tag todo-app:prod --target production .
+```
+Run with:
+```bash
+docker run --publish 8000:5000 --env-file=.env todo-app:prod
 ```
