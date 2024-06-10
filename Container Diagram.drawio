@@ -1,65 +1,78 @@
-<mxfile host="app.diagrams.net" modified="2024-06-07T16:40:38.635Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="BHI4INeGqmlLzBgTPJl6" version="24.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-18T11:35:45.330Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="KFTlVgtn9myS1dBtsBbA" version="24.5.5" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1434" dy="738" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A9C4EB;direction=south;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="40" y="370" width="740" height="400" as="geometry" />
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A9C4EB;direction=south;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="40" y="321" width="740" height="400" as="geometry" />
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9AC7BF;direction=south;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="80" y="415" width="650" height="320" as="geometry" />
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-0" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9AC7BF;direction=south;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="80" y="366" width="650" height="320" as="geometry" />
         </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="Web server&lt;div&gt;[Flask]&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="354" y="450" width="120" height="70" as="geometry" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="Web server&lt;div&gt;[Flask]&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;fillColor=#F19C99;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="354" y="401" width="120" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-3" value="Docker Container" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="40" y="370" width="140" height="50" as="geometry" />
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-3" value="Docker Container" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="40" y="321" width="140" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-7" value="Trello service&lt;div&gt;[Python]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;API Config&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="130" y="590" width="120" height="90" as="geometry" />
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-7" value="Trello service&lt;div&gt;[Python]&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;API Config&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F19C99;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="130" y="541" width="120" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-9" value="ToDo App User" style="shape=umlActor;verticalLabelPosition=top;verticalAlign=bottom;html=1;outlineConnect=0;fontSize=17;labelPosition=center;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="364" y="80" width="100" height="160" as="geometry" />
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-10" value="Trello" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="50" y="811" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-10" value="Trello" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="50" y="860" width="120" height="80" as="geometry" />
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-11" value="Trello API" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="120" y="811" width="60" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-11" value="Trello API" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="120" y="860" width="60" height="20" as="geometry" />
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-18" value="ToDo App&lt;div&gt;[Python]&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F19C99;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="354" y="528.5" width="120" height="115" as="geometry" />
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-12" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZYKKPvIG9qX7VCkr71IR-11" target="ZYKKPvIG9qX7VCkr71IR-7">
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-19" value="" style="endArrow=none;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startFill=1;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZYKKPvIG9qX7VCkr71IR-18" target="WIyWlLk6GJQsqaUBKTNV-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="360" y="730" as="sourcePoint" />
-            <mxPoint x="410" y="680" as="targetPoint" />
+            <mxPoint x="360" y="491" as="sourcePoint" />
+            <mxPoint x="410" y="441" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-18" value="ToDo App&lt;div&gt;[Python]&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="354" y="555" width="120" height="115" as="geometry" />
-        </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-19" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZYKKPvIG9qX7VCkr71IR-18" target="WIyWlLk6GJQsqaUBKTNV-3">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="360" y="540" as="sourcePoint" />
-            <mxPoint x="410" y="490" as="targetPoint" />
+        <mxCell id="I9weaer6hCnIwsDMZLPC-2" value="Gets content from" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ZYKKPvIG9qX7VCkr71IR-19" vertex="1" connectable="0">
+          <mxGeometry x="0.3143" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-21" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZYKKPvIG9qX7VCkr71IR-18" target="ZYKKPvIG9qX7VCkr71IR-7">
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-21" value="" style="endArrow=classic;startArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZYKKPvIG9qX7VCkr71IR-18" target="ZYKKPvIG9qX7VCkr71IR-7" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="420" y="610" as="sourcePoint" />
-            <mxPoint x="276.99529411764684" y="690" as="targetPoint" />
+            <mxPoint x="420" y="561" as="sourcePoint" />
+            <mxPoint x="276.99529411764684" y="641" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-23" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZYKKPvIG9qX7VCkr71IR-9" target="WIyWlLk6GJQsqaUBKTNV-3">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="410" y="230" as="sourcePoint" />
-            <mxPoint x="460" y="190" as="targetPoint" />
+        <mxCell id="I9weaer6hCnIwsDMZLPC-1" value="Uses" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="ZYKKPvIG9qX7VCkr71IR-21" vertex="1" connectable="0">
+          <mxGeometry x="0.0377" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-25" value="&lt;br&gt;&lt;span style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;Adds new tasks&lt;/span&gt;&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;Views tasks&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;div style=&quot;forced-color-adjust: none;&quot;&gt;Marks tasks as done&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="380" y="270" width="180" height="70" as="geometry" />
+        <mxCell id="ZYKKPvIG9qX7VCkr71IR-23" value="&lt;br&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;HTTP requests/&lt;/span&gt;&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;responses&lt;/div&gt;" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="WIyWlLk6GJQsqaUBKTNV-3" edge="1">
+          <mxGeometry x="-0.5238" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="414" y="191" as="sourcePoint" />
+            <mxPoint x="460" y="141" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="ZYKKPvIG9qX7VCkr71IR-26" value="User task data is read and written" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="60" y="790" width="110" height="30" as="geometry" />
+        <mxCell id="I9weaer6hCnIwsDMZLPC-3" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="ZYKKPvIG9qX7VCkr71IR-11" target="ZYKKPvIG9qX7VCkr71IR-18" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="811" as="sourcePoint" />
+            <mxPoint x="414" y="644" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xck5RrtbYiWM2oRjXclB-3" value="&lt;span style=&quot;font-size: 12px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;User task data is read and written&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="I9weaer6hCnIwsDMZLPC-3" vertex="1" connectable="0">
+          <mxGeometry x="0.0745" relative="1" as="geometry">
+            <mxPoint x="-46" y="45" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="I9weaer6hCnIwsDMZLPC-4" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Container Diagram&lt;/h1&gt;&lt;div&gt;ToDo app&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="40" y="30" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="xck5RrtbYiWM2oRjXclB-0" value="Web browser" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="354" y="121" width="120" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
