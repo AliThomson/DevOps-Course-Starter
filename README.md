@@ -134,3 +134,6 @@ Run with:
 ```bash
 docker run --publish 8000:5000 --env-file=.env todo-app:prod
 ```
+
+## Diagrams
+There are architecture in the `diagrams` subfolder. These were created using [app.diagrams.net](https://app.diagrams.net/) and you can use the `draw.io` file to edit them.
