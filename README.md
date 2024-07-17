@@ -95,6 +95,7 @@ ansible-playbook install-to-do-app.yml -i inventory
 ```
 
 ## Building and running the app via Docker
+Make sure you're running Docker Desktop and then choose from the options below
 
 ### For local development
 To run:
@@ -109,9 +110,19 @@ Build with:
 docker build --tag todo-app:dev --target development .
 ```
 
+Test with:
+```bash
+docker build --tag todo-app:test --target test .
+```
+
 Run (with hotloading):
 ```bash
 docker run --publish 8000:5000 --env-file .env --mount "type=bind,source=$(pwd)/todo_app,target=/app/todo_app" todo-app:dev
+```
+
+Run tests:
+```bash
+docker run todo-app:test
 ```
 
 ### Production

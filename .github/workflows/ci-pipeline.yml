@@ -2,9 +2,12 @@ name: Continuous Integration
 on: [push]
 
 jobs:
-    build:
-        name: Build and test
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - run: echo Hello World
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build --tag todo-app:test --target test .
+      - run: docker run todo-app:test
+        
+
