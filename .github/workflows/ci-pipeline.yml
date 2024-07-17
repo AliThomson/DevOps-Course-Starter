@@ -1,5 +1,11 @@
 name: Continuous Integration
-on: [push]
+on:
+  push:
+    paths:
+      - 'README.md'
+  pull_request:
+    paths:
+      - 'README.md'
 
 jobs:
   build:
