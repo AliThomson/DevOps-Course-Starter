@@ -141,6 +141,10 @@ docker run --publish 8000:5000 --env-file=.env todo-app:prod
 ```
 
 ## Hosting the app on Azure
+You can see a working version here:
+`https://alithowebapp.azurewebsites.net/`
+
+To set up from scratch:
 ### Docker
 Login to DockerHub locally (you may need to do this in PowerShell)
 To login to DockerHub locally you may need to use Powershell
@@ -158,7 +162,7 @@ Push the image using
 docker push <username>/todo-app
 ```
 
-## Azure
+### Azure
 Create a service plan with 
 ```
 az appservice plan create --resource-group <resource_group_name> -n <unique_service_plan_name> --sku B1 --is-linux
@@ -170,6 +174,7 @@ az webapp create --resource-group <resource_group_name> --plan <unique_service_p
 ```
 
 Set up your environment variables in your WebApp configuration. These are found inn Azure, under Settings. Add each key value air from the .env file. Additionally, add a value for `WEBSITES_PORT` of `5000`, and then save. This will restart the web app.
+
 
 ## Diagrams
 There are architecture in the `diagrams` subfolder. These were created using [app.diagrams.net](https://app.diagrams.net/) and you can use the `draw.io` file to edit them.
