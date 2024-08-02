@@ -97,6 +97,11 @@ ansible-playbook install-to-do-app.yml -i inventory
 ## Building and running the app via Docker
 Make sure you're running Docker Desktop and then choose from the options below
 
+To login to DockerHub locally you may need to use Powershell
+```
+docker login
+```
+
 ### For local development
 To run:
 ```bash
@@ -134,6 +139,37 @@ Run with:
 ```bash
 docker run --publish 8000:5000 --env-file=.env todo-app:prod
 ```
+
+## Hosting the app on Azure
+### Docker
+Login to DockerHub locally (you may need to do this in PowerShell)
+To login to DockerHub locally you may need to use Powershell
+```
+docker login
+```
+
+Build the image using
+```
+docker build --tag <username>/todo-app --target production .
+```
+
+Push the image using
+```
+docker push <username>/todo-app
+```
+
+## Azure
+Create a service plan with 
+```
+az appservice plan create --resource-group <resource_group_name> -n <unique_service_plan_name> --sku B1 --is-linux
+```
+
+And then create the WebApp
+```
+az webapp create --resource-group <resource_group_name> --plan <unique_service_plan_name> --name <webapp_name> --deployment-container-image-name docker.io/<dockerhub_username>/<container-image-name>:latest
+```
+
+Set up your environment variables in your WebApp configuration. These are found inn Azure, under Settings. Add each key value air from the .env file. Additionally, add a value for `WEBSITES_PORT` of `5000`, and then save. This will restart the web app.
 
 ## Diagrams
 There are architecture in the `diagrams` subfolder. These were created using [app.diagrams.net](https://app.diagrams.net/) and you can use the `draw.io` file to edit them.
