@@ -84,6 +84,9 @@ Add your new tests into todo_app/tests. To ensure your tests are 'discovered' an
 If you add a new folder for your tests remember to add an empty ```__init__.py``` file to the folder
 
 ## Deploying the application
+### Azure
+The pipeline will automatically build and deploy to Azure whenever code is pushed to main. See '## Hosting the app on Azure' below.
+
 ### Ansible
 You'll need: 
 1. Ansible installed on a machine to act as your control node.
