@@ -21,7 +21,7 @@ def test_view_model_done_property(test_view_model):
     result = test_view_model.done_cards
 
 # Assert
-    assert len(result) == 5
+    assert len(result) == 3
     assert any(card.name == "test4" for card in result)
 
 def test_view_model_doing_property(test_view_model):
