@@ -29,4 +29,5 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
       - run: docker build --tag ${{ secrets.DOCKER_USERNAME }}/todo-app:latest --target production .
       - run: docker push ${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+      - run: curl -dH -X POST '${{ secrets.TODOAPP_WEBHOOK_URL }}'
         
