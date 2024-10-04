@@ -1,9 +1,18 @@
 import pymongo
 
+from todo_app.classes.item import Item
 from todo_app.classes.mongodb_service import MongoDbService
 
-def get_items():  
-    pass
+def get_items():
+    mongoDbService = MongoDbService()
+    mongo_documents = list(mongoDbService.todo_items.find())
+
+    items = []
+    for document in mongo_documents:
+        item = Item.from_mongo_document(document)
+        items.append(item)
+
+    return items
 
 def add_item(new_task_name: str):
     mongoDbService = MongoDbService()

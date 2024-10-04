@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 from todo_app.classes.view_model import ViewModel
 from todo_app.flask_config import Config
-from todo_app.data.trello_items import get_cards, move_card
+from todo_app.data.trello_items import move_card
 from todo_app.data.mongo_items import get_items, add_item, update_item
 
 def create_app():
@@ -11,7 +11,7 @@ def create_app():
 
     @app.route('/')
     def index():
-        items_view_model = ViewModel(get_cards())
+        items_view_model = ViewModel(get_items())
         return render_template('index.html', view_model=items_view_model)
 
     @app.post('/add-card')

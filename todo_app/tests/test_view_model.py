@@ -1,17 +1,17 @@
 import pytest
-from todo_app.classes.card import Card
+from todo_app.classes.item import Item
 from todo_app.classes.view_model import ViewModel
 
 # Arrange
 @pytest.fixture
 def test_view_model():
     test_cards = []
-    test_cards.append(Card(1, "test1", "To Do"))
-    test_cards.append(Card(2, "test2", "Doing"))
-    test_cards.append(Card(3, "test3", "Doing"))
-    test_cards.append(Card(4, "test4", "Done"))
-    test_cards.append(Card(5, "test5", "Done"))
-    test_cards.append(Card(6, "test6", "Done"))
+    test_cards.append(Item(1, "test1", "To Do"))
+    test_cards.append(Item(2, "test2", "Doing"))
+    test_cards.append(Item(3, "test3", "Doing"))
+    test_cards.append(Item(4, "test4", "Done"))
+    test_cards.append(Item(5, "test5", "Done"))
+    test_cards.append(Item(6, "test6", "Done"))
 
     return ViewModel(test_cards)
 

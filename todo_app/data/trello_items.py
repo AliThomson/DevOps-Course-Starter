@@ -1,7 +1,7 @@
 import json
 import requests
 
-from todo_app.classes.card import Card
+from todo_app.classes.item import Item
 from todo_app.classes.trello_service import TrelloService
 
 
@@ -20,7 +20,7 @@ def get_cards():
     cards = []
     for list in board:
         for card in list['cards']:
-            cards.append(Card.from_trello_board(card, list))
+            cards.append(Item.from_trello_board(card, list))
 
     return cards
 
