@@ -1,5 +1,4 @@
 from bson import ObjectId
-import pymongo
 
 from todo_app.classes.item import Item
 from todo_app.classes.mongodb_service import MongoDbService
