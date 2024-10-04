@@ -13,15 +13,15 @@ def create_app():
         items_view_model = ViewModel(get_items())
         return render_template('index.html', view_model=items_view_model)
 
-    @app.post('/add-card')
-    def add_card_request():
+    @app.post('/add-item')
+    def add_item_request():
         new_item = request.form.get('title')
         add_item(new_item)
         return redirect(url_for('index'))
 
-    @app.post('/complete-card')
-    def update_card_request():
-        item_id = request.form.get('card_id')
+    @app.post('/complete-item')
+    def update_item_request():
+        item_id = request.form.get('item_id')
         print(item_id)
         
         update_item(item_id, "Done")
