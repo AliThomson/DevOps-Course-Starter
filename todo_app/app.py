@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for
 
 from todo_app.classes.view_model import ViewModel
 from todo_app.flask_config import Config
-from todo_app.data.trello_items import move_card
 from todo_app.data.mongo_items import get_items, add_item, update_item
 
 def create_app():
@@ -25,7 +24,7 @@ def create_app():
         item_id = request.form.get('card_id')
         print(item_id)
         
-        move_card(item_id, "done")
+        update_item(item_id, "Done")
         return redirect(url_for('index'))
     
     return app

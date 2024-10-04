@@ -16,4 +16,4 @@ class ViewModel:
     
     @property
     def to_do_cards(self):
-        return [card for card in self.cards if card.status == "To Do"]
+        return [card for card in self.cards if card.status == "To do"]

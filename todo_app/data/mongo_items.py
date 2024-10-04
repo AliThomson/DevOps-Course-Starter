@@ -1,3 +1,4 @@
+from bson import ObjectId
 import pymongo
 
 from todo_app.classes.item import Item
@@ -22,5 +23,7 @@ def add_item(new_task_name: str):
     }
     mongoDbService.todo_items.insert_one(new_item)
 
-def update_item(item_id, status):
-    pass
+def update_item(item_id: str, status: str):
+    mongoDbService = MongoDbService()
+    mongoDbService.todo_items.update_one({"_id": ObjectId(item_id)}, {"$set": {"status": status}})
+

@@ -6,7 +6,7 @@ from todo_app.classes.view_model import ViewModel
 @pytest.fixture
 def test_view_model():
     test_cards = []
-    test_cards.append(Item(1, "test1", "To Do"))
+    test_cards.append(Item(1, "test1", "To do"))
     test_cards.append(Item(2, "test2", "Doing"))
     test_cards.append(Item(3, "test3", "Doing"))
     test_cards.append(Item(4, "test4", "Done"))

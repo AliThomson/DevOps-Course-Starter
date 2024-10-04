@@ -23,7 +23,7 @@
                 <td>{{ card.name }}</td>
                 <td>{{ card.status }}</td>
                 <td>
-                  {% if card.status == "To Do" %}
+                  {% if card.status == "To do" %}
                     <form id="complete-card" action="/complete-card" method="post">           
                       <input type="hidden" name="card_id" id="card_id" value="{{card.id}}" class="hidden" />
                       <input type="submit" value="Done" class="btn btn-primary" />
