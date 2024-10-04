@@ -6,9 +6,9 @@ dotenv.load_dotenv()
 
 client = pymongo.MongoClient(os.getenv("MONGODB_CONNECTION_STRING"))
 
-db = client['todoapp-db']
+db = client[os.getenv("MONGODB_NAME")]
 
-todo_items = db.todo_items
+todo_items = db[os.getenv("MONGODB_COLLECTION_NAME")]
 
 item_one = {"description": "testing"}
 item_two = {"description": "Updateable item", "type": "updateable"}
