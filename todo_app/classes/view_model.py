@@ -1,19 +1,19 @@
 class ViewModel:
-    def __init__(self, cards):
-        self._cards = cards
+    def __init__(self, items):
+        self._items = items
 
     @property
-    def cards(self):
-        return self._cards
+    def items(self):
+        return self._items
     
     @property
-    def done_cards(self):
-        return [card for card in self.cards if card.status == "Done"]
+    def done_items(self):
+        return [item for item in self.items if item.status == "Done"]
     
     @property
-    def doing_cards(self):
-        return [card for card in self.cards if card.status == "Doing"]
+    def doing_items(self):
+        return [item for item in self.items if item.status == "Doing"]
     
     @property
-    def to_do_cards(self):
-        return [card for card in self.cards if card.status == "To Do"]
+    def to_do_items(self):
+        return [item for item in self.items if item.status == "To do"]
