@@ -26,7 +26,7 @@
                   {% if item.status == "To do" %}
                   <form id="complete-item" action="/complete-item" method="post">
                     <input type="hidden" name="item_id" id="item_id" value="{{item.id}}" class="hidden" />
-                      <input type="submit" value="Done" class="btn btn-primary" />
+                      <input type="submit" value="Done" class="btn btn-primary btn-sm" />
                     </form>
                   {% endif %}
                 </td>
