@@ -3,6 +3,7 @@ import mongomock
 from dotenv import find_dotenv, load_dotenv
 
 from todo_app import app
+from todo_app.classes.item_service import ItemService
 from todo_app.classes.mongodb_service import MongoDbService
 
 @pytest.fixture
