@@ -18,14 +18,16 @@ def client():
 
 def test_index_page(client):
     # Arrange
-    mongoDbService = MongoDbService()
+    #mongoDbService = MongoDbService()
+    item_service = ItemService()
 
     test_document = {
         "name": "Test item",
         "status": "To do"
     }
 
-    mongoDbService.todo_items.insert_one(test_document)
+    #mongoDbService.todo_items.insert_one(test_document)
+    item_service.add_item("Test item")
 
     # Act
     response = client.get('/')
