@@ -3,7 +3,6 @@ import mongomock
 from dotenv import find_dotenv, load_dotenv
 
 from todo_app import app
-from todo_app.classes.item_service import ItemService
 from todo_app.classes.mongodb_service import MongoDbService
 
 @pytest.fixture
@@ -18,16 +17,14 @@ def client():
 
 def test_index_page(client):
     # Arrange
-    #mongoDbService = MongoDbService()
-    item_service = ItemService()
+    mongoDbService = MongoDbService()
 
     test_document = {
         "name": "Test item",
         "status": "To do"
     }
 
-    #mongoDbService.todo_items.insert_one(test_document)
-    item_service.add_item("Test item")
+    mongoDbService.todo_items.insert_one(test_document)
 
     # Act
     response = client.get('/')
