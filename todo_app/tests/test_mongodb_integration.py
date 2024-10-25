@@ -1,16 +1,21 @@
 import pytest
 import mongomock
 from dotenv import find_dotenv, load_dotenv
+from flask_dance.consumer.storage import MemoryStorage
 
 from todo_app import app
 from todo_app.classes.mongodb_service import MongoDbService
+from todo_app.oauth import blueprint
 
 @pytest.fixture
 def client():
+    storage = MemoryStorage({"access_token": "fake-token"})
+    
     file_path = find_dotenv('.env.test')
     load_dotenv(file_path, override=True)
     
     with mongomock.patch(servers=(('fakemongo.com', 27017),)):
+        setattr(blueprint, 'storage', storage)
         test_app = app.create_app()
         with test_app.test_client() as client:
             yield client
