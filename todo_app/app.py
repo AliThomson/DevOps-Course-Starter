@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_dance.contrib.github import github
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from todo_app.oauth import login_required, blueprint
 
@@ -9,6 +9,7 @@ from todo_app.flask_config import Config
 
 def create_app():
     app = Flask(__name__)
+    app.wsgi_app = ProxyFix(app.wsgi_app)
     app.config.from_object(Config())
 
     app.register_blueprint(blueprint, url_prefix="/login")
