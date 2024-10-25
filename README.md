@@ -43,6 +43,8 @@ The items are stored in a Mongo DB database. You'll need an account and a databa
 
 Once you have these you'll need to update the .env file with the database connection string. 
 
+NB: By default all user data in MongoDB  is encrypted at rest, with no controls available to change this.
+
 ## Running the App
 
 Once the all dependencies have been installed, start the Flask app in development mode within the Poetry environment by running:
