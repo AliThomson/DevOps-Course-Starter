@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     name: Build and test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - run: docker build --tag todo-app:test --target test .
@@ -34,6 +34,7 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
       - run: docker build --tag ${{ secrets.DOCKER_USERNAME }}/todo-app:latest --target production .
       - run: docker push ${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+      - install: terraform
       - run: terraform init
       - run: terraform apply -auto-approve -var prefix=pl
       - run: curl -dH -X POST '$(terraform output -raw cd_webhook_url)'
