@@ -86,7 +86,7 @@ resource "azurerm_cosmosdb_account" "main" {
     failover_priority = 0
   }
 
-  # lifecycle { 
-  #   prevent_destroy = true 
-  # }
+  lifecycle { 
+    prevent_destroy = true 
+  }
 }
