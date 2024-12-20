@@ -44,5 +44,5 @@ jobs:
           TF_VAR_secret_key: ${{ secrets.SECRET_KEY }}
           TF_VAR_oauth_client_id: ${{ secrets.OAUTH_CLIENT_ID }}
           TF_VAR_oauth_client_secret: ${{ secrets.OAUTH_CLIENT_SECRET }}
-      - run: curl -dH -X POST '$(terraform output -raw cd_webhook_url)'
+      - run: curl -dH -X POST "$(terraform output -raw cd_webhook_url)
         
