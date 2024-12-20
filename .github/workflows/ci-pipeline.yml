@@ -25,9 +25,6 @@ jobs:
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      SECRET_KEY: ${{ secrets.SECRET_KEY }}
-      OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
-      OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - name: Login to Docker Hub
@@ -39,5 +36,9 @@ jobs:
       - run: docker push ${{ secrets.DOCKER_USERNAME }}/todo-app:latest
       - run: terraform init
       - run: terraform apply -auto-approve -var prefix=pl
+        env:
+          TF_VAR_secret_key: ${{ secrets.SECRET_KEY }}
+          TF_VAR_oauth_client_id: ${{ secrets.OAUTH_CLIENT_ID }}
+          TF_VAR_oauth_client_secret: ${{ secrets.OAUTH_CLIENT_SECRET }}
       - run: curl -dH -X POST '$(terraform output -raw cd_webhook_url)'
         
