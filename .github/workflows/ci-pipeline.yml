@@ -10,14 +10,14 @@ on:
 jobs:
   build:
     name: Build and test
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: docker build --tag todo-app:test --target test .
       - run: docker run todo-app:test
   deploy:
     name: Build and publish build artefact to Docker
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/module-12'
     env:
@@ -34,6 +34,10 @@ jobs:
           password: ${{ secrets.DOCKER_PAT }}
       - run: docker build --tag ${{ secrets.DOCKER_USERNAME }}/todo-app:latest --target production .
       - run: docker push ${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+      - name: Install Terraform
+        uses: little-core-labs/install-terraform@v2.0.0
+        with:
+            version: 1.9.8
       - run: terraform init
       - run: terraform apply -auto-approve -var prefix=pl
         env:
