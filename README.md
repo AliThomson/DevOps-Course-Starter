@@ -149,7 +149,9 @@ docker run --publish 8000:5000 --env-file=.env todo-app:prod
 
 ## Hosting the app on Azure
 You can see a working version here:
-`https://alithowebapp.azurewebsites.net/`
+`https://pl-alitho-tf-app.azurewebsites.net/`
+
+Azure infrastructure is maintained by Terraform and deployed by a GitHub Action CD pipeline
 
 To set up from scratch:
 ### Docker
