@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.middleware.proxy_fix import ProxyFix
 
@@ -11,6 +12,7 @@ def create_app():
     app = Flask(__name__)
     app.wsgi_app = ProxyFix(app.wsgi_app)
     app.config.from_object(Config())
+    app.logger.setLevel(os.environ.get('LOG_LEVEL'))
 
     app.register_blueprint(blueprint, url_prefix="/login")
     
@@ -20,6 +22,7 @@ def create_app():
     @login_required
     def index():    
         items_view_model = ViewModel(item_service.get_items())
+        app.logger.info("Homepage viewed")
         return render_template('index.html', view_model=items_view_model)
 
     @app.post('/add-item')

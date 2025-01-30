@@ -2,6 +2,7 @@ from bson import ObjectId
 
 from todo_app.classes.item import Item
 from todo_app.classes.mongodb_service import MongoDbService
+from flask import current_app
 
 class ItemService:
     def __init__(self):
@@ -24,7 +25,9 @@ class ItemService:
             "status": "To do"
         }
         self.mongoDbService.todo_items.insert_one(new_item)
+        current_app.logger.info(f"Successfully added item: {new_item} in db")
 
     def update_item(self, item_id: str, status: str):
         self.mongoDbService.todo_items.update_one({"_id": ObjectId(item_id)}, {"$set": {"status": status}})
+        current_app.logger.info("Successfully updated item: {item_id} to {status} in db")
 
