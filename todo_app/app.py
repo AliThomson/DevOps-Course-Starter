@@ -3,6 +3,9 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 from todo_app.oauth import login_required, blueprint
 
+from loggly.handlers import HTTPSHandler
+from logging import Formatter
+
 from todo_app.classes.item_service import ItemService
 from todo_app.classes.view_model import ViewModel
 from todo_app.flask_config import Config
@@ -12,6 +15,15 @@ def create_app():
     app.wsgi_app = ProxyFix(app.wsgi_app)
     app.config.from_object(Config())
 
+    app.logger.setLevel(app.config['LOG_LEVEL'])
+
+    if app.config['LOGGLY_TOKEN'] is not None:
+        handler = HTTPSHandler(f'https://logs-01.loggly.com/inputs/{app.config["LOGGLY_TOKEN"]}/tag/todo-app')
+        handler.setFormatter(
+            Formatter("[%(asctime)s] %(levelname)s in %(module)s: %(message)s")
+        )
+        app.logger.addHandler(handler)
+
     app.register_blueprint(blueprint, url_prefix="/login")
     
     item_service = ItemService()
@@ -20,6 +32,7 @@ def create_app():
     @login_required
     def index():    
         items_view_model = ViewModel(item_service.get_items())
+        app.logger.info("Homepage viewed")
         return render_template('index.html', view_model=items_view_model)
 
     @app.post('/add-item')

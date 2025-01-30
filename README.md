@@ -187,3 +187,6 @@ Set up your environment variables in your WebApp configuration. These are found 
 
 ## Diagrams
 There are architecture in the `diagrams` subfolder. These were created using [app.diagrams.net](https://app.diagrams.net/) and you can use the `draw.io` file to edit them.
+
+## Logging
+Logs can be sent to Loggly. You need to create an account [here](https://www.loggly.com/) and add a customer token (Logs/Source Settings). Use this token to set the LOGGLY_TOKEN environment variable.
